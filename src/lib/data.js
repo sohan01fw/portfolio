@@ -1,6 +1,7 @@
+import Ghumfir from "../assets/Ghumfir.png"
 export const data = [
   {
-    imgSrc: "src/assets/Ghumfir.png",
+    imgSrc: Ghumfir,
     title: "Ghumfir(Best Travelling Experience)",
     desc: "A platform helps u to decide where to go in visiting nepal.Get instantly near best and famous location to travel freely.",
     siteLink:

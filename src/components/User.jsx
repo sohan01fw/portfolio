@@ -1,3 +1,9 @@
+import github from "../assets/github.png";
+
+import twitter from "../assets/twitter.png";
+
+import linkedin from "../assets/linkedin.png";
+
 const User = () => {
   return (
     <div className="flex flex-col md:ml-14 shadow-lg bg-white/5 backdrop-blur-md rounded-2xl md:w-80 p-10 m-10">
@@ -26,7 +32,7 @@ const User = () => {
           "
             >
               <img
-                src="src/assets/github.png"
+                src={github}
                 alt="github_img"
                 className="h-auto w-10"
               />
@@ -42,7 +48,7 @@ const User = () => {
           "
             >
               <img
-                src="src/assets/twitter.png"
+              src = {twitter}
                 alt="twitter_img"
                 className="h-auto w-10"
               />
@@ -59,7 +65,7 @@ const User = () => {
           "
             >
               <img
-                src="src/assets/linkedin.png"
+              src = {linkedin}
                 alt="linkedin_img"
                 className="h-auto w-10"
               />
