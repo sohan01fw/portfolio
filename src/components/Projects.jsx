@@ -10,16 +10,16 @@ const Projects = () => {
       </div>
       <div className="md:flex md:flex-col">
         <Nav />
-        <div className="md:m-10 md:mt-5 md:flex md:flex-wrap md:flex-row">
+        <div className="md:m-10 md:mt-5 md:flex md:flex-wrap md:flex-row ">
           {data.map((data, index) => {
             return (
-              <div key={index} className="m-3 md:w-80">
+              <div key={index} className="m-3 md:w-80 shadow-lg p-3">
                 <div>
                   <img src={data.imgSrc} alt="img" />
                 </div>
-                <div>
-                  <h3>{data.title}</h3>
-                  <p>{data.desc}</p>
+                <div className="mb-5">
+                  <h3 className="font-semibold p-1 mt-3 text-lg">{data.title}</h3>
+                  <p className="text-[13px] font-semibold text-gray-700 dark:text-gray-500"><span className="font-bold text-md text-teal-700">Goal: </span>{data.goal}</p>
                 </div>
                 <div className="flex gap-4">
                   <a href={data.codeLink} className="underline">
