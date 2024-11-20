@@ -1,0 +1,14 @@
+/* Light Mode */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Adjust the color to match your light theme */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color:  #f0f0f0; /* Adjust the color to match your light theme */
+}
+

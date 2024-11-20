@@ -10,7 +10,7 @@ const Projects = () => {
       </div>
       <div className="md:flex md:flex-col">
         <Nav />
-        <div className="md:m-10 md:mt-5 md:flex md:flex-wrap md:flex-row ">
+        <div className=" md:mt-5 md:flex md:flex-wrap md:flex-row md:h-[30rem] md:overflow-y-scroll ">
           {data.map((data, index) => {
             return (
               <div key={index} className="m-3 md:w-80 shadow-lg p-3">
@@ -23,11 +23,11 @@ const Projects = () => {
                 </div>
                 <div className="flex gap-4">
                   <a href={data.codeLink} className="underline">
-                    Live code
-                  </a>
-                  <a href={data.siteLink} className="underline">
                     Source code
                   </a>
+                  {data.siteLink && <a href={data.siteLink} className="underline">
+                    live code(site/video)
+                  </a>}
                 </div>
               </div>
             );
