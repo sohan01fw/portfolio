@@ -7,7 +7,7 @@ export const data = [
     imgSrc: school,
     title: "School site",
     goal: "To learn about the fully dynamic school site built from groundup and provide the comprehensive user expereince and functionality helps to improve the school visibility online. ",
-    siteLink: "https://photos.app.goo.gl/G7mYV66ydmYVM1zC9",
+    siteLink: "https://makalu-school.vercel.app/",
     codeLink: "https://github.com/makaluschool/makalu-site-project",
   },
   {
@@ -28,7 +28,7 @@ export const data = [
     imgSrc: cinedb,
     title: "Cinedb",
     goal: "To learn about large and complex api by handling it's data efficiently and serve to client user",
-    siteLink: "https://makalu-school.vercel.app/",
+    siteLink: "https://photos.app.goo.gl/n1S3TSVTwzikek376",
     codeLink: "https://github.com/sohan01fw/cinedb",
   },
 ];

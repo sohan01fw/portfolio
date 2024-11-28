@@ -18,16 +18,29 @@ const Projects = () => {
                   <img src={data.imgSrc} alt="img" />
                 </div>
                 <div className="mb-5">
-                  <h3 className="font-semibold p-1 mt-3 text-lg">{data.title}</h3>
-                  <p className="text-[13px] font-semibold text-gray-700 dark:text-gray-500"><span className="font-bold text-md text-teal-700">Goal: </span>{data.goal}</p>
+                  <h3 className="font-semibold p-1 mt-3 text-lg">
+                    {data.title}
+                  </h3>
+                  <p className="text-[13px] font-semibold text-gray-700 dark:text-gray-500">
+                    <span className="font-bold text-md text-teal-700">
+                      Goal:{" "}
+                    </span>
+                    {data.goal}
+                  </p>
                 </div>
                 <div className="flex gap-4">
                   <a href={data.codeLink} className="underline">
                     Source code
                   </a>
-                  {data.siteLink && <a href={data.siteLink} className="underline">
-                    live code(site/video)
-                  </a>}
+                  {data.siteLink && (
+                    <a
+                      href={data.siteLink}
+                      target="_blank"
+                      className="underline"
+                    >
+                      live code(site/video)
+                    </a>
+                  )}
                 </div>
               </div>
             );
