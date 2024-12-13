@@ -7,7 +7,8 @@ export const data = [
     imgSrc: school,
     title: "School site",
     goal: "To learn about the fully dynamic school site built from groundup and provide the comprehensive user expereince and functionality helps to improve the school visibility online. ",
-    siteLink: "https://makalu-school.vercel.app/",
+    // siteLink: "https://makalu-school.vercel.app/",
+    siteLink: "https://makaluerd-dereschool.vercel.app/",
     codeLink: "https://github.com/makaluschool/makalu-site-project",
   },
   {
