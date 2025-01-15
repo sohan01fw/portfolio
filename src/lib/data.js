@@ -2,7 +2,15 @@ import Ghumfir from "../assets/Ghumfir.png";
 import cinedb from "../assets/cinedb.png";
 import club from "../assets/club.png";
 import school from "../assets/school.png";
+import job from "../assets/joboardhome.png";
 export const data = [
+  {
+    imgSrc: job,
+    title: "Job board",
+    goal: "To learn about how does the data is handle and display in aggregate level in job board from both applicant and recuriter.",
+    siteLink: "https://job-board-all.vercel.app/",
+    codeLink: "https://github.com/sohan01fw/job-board",
+  },
   {
     imgSrc: school,
     title: "School site",
