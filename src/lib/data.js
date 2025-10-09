@@ -2,12 +2,12 @@ import Ghumfir from "../assets/Ghumfir.png";
 import cinedb from "../assets/cinedb.png";
 import club from "../assets/club.png";
 import school from "../assets/school.png";
-import job from "../assets/joboardhome.png";
+import job from "../assets/jobboardhome.png";
 export const data = [
   {
     imgSrc: job,
     title: "Job board",
-    goal: "To learn about how does the data is handle and display in aggregate level in job board from both applicant and recuriter.",
+    goal: "To build an AI-powered job board that intelligently recommends jobs and candidates using AI-driven matching, enables AI-assisted job posting creation, and integrates social media-style engagement to enhance recruiter-applicant interaction and visibility.",
     siteLink: "https://job-board-all.vercel.app/",
     codeLink: "https://github.com/sohan01fw/job-board",
   },
@@ -22,7 +22,7 @@ export const data = [
   {
     imgSrc: Ghumfir,
     title: "Ghumfir(Best Travelling Experience)",
-    goal: "To learn to build the map based service where user can plan there travel exprience",
+    goal: " To develop an interactive, map-based travel planning platform that allows users to explore destinations, create personalized itineraries, manage budgets, and record notes — enhancing their overall travel experience through smart planning and intuitive design.",
     siteLink:
       "https://photos.google.com/share/AF1QipMO832iExh3ZJsiVspECf8vWUjRB7Bs2-8c__7jH-s13hnv97OTYFCMl01y38Yk-w/photo/AF1QipNlRb5LRsZqa9rvqQHTU1SpMPQ0mNGumzaorMNU?key=ZHltZXFhbThYUUNjdmdDV0RqSjY3NXIxQmx2T19B",
     codeLink: "https://github.com/sohan01fw/Ghumfir",

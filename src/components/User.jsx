@@ -3,6 +3,8 @@ import github from "../assets/github.png";
 import twitter from "../assets/twitter.png";
 
 import linkedin from "../assets/linkedin.png";
+import { FaDownload } from "react-icons/fa6";
+import resumePDF from "../assets/sohanlatestresume.pdf";
 
 const User = () => {
   return (
@@ -13,7 +15,6 @@ const User = () => {
           src="https://avatars.githubusercontent.com/u/121301775?v=4"
         />
       </div>
-
       <div className="font-semibold text-sm gap-1 flex flex-col text-center md:max-w-80 mt-8 break-words">
         <h4>sohan shiwakoti(cwact)</h4>
 
@@ -31,11 +32,7 @@ const User = () => {
             https://github.com/sohan01fw
           "
             >
-              <img
-                src={github}
-                alt="github_img"
-                className="h-auto w-10"
-              />
+              <img src={github} alt="github_img" className="h-auto w-10" />
             </a>
           </div>
         </div>
@@ -47,11 +44,7 @@ const User = () => {
             https://x.com/sohan064
           "
             >
-              <img
-              src = {twitter}
-                alt="twitter_img"
-                className="h-auto w-10"
-              />
+              <img src={twitter} alt="twitter_img" className="h-auto w-10" />
             </a>
           </div>
         </div>
@@ -64,14 +57,24 @@ const User = () => {
             https://www.linkedin.com/in/sohan-shiwakoti-1497072a4/
           "
             >
-              <img
-              src = {linkedin}
-                alt="linkedin_img"
-                className="h-auto w-10"
-              />
+              <img src={linkedin} alt="linkedin_img" className="h-auto w-10" />
             </a>
           </div>
         </div>
+      </div>
+      {/* resume */}
+      <div className="flex justify-center mt-6">
+        <a
+          href={resumePDF}
+          download="Sohan_Shiwakoti_Resume.pdf"
+          className="group flex items-center gap-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300
+                         bg-gradient-to-r from-teal-400 to-teal-600 text-white
+                         dark:from-teal-500 dark:to-teal-700
+                         hover:scale-105 hover:shadow-lg active:scale-95"
+        >
+          <FaDownload className="text-white group-hover:rotate-[-15deg] transition-transform duration-300" />
+          Download Resume
+        </a>
       </div>
     </div>
   );
