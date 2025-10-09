@@ -3,8 +3,8 @@ import github from "../assets/github.png";
 import twitter from "../assets/twitter.png";
 
 import linkedin from "../assets/linkedin.png";
-import { FaDownload } from "react-icons/fa6";
 import resumePDF from "../assets/sohanlatestresume.pdf";
+import { BsEyeFill } from "react-icons/bs";
 
 const User = () => {
   return (
@@ -72,8 +72,8 @@ const User = () => {
                          dark:from-teal-500 dark:to-teal-700
                          hover:scale-105 hover:shadow-lg active:scale-95"
         >
-          <FaDownload className="text-white group-hover:rotate-[-15deg] transition-transform duration-300" />
-          Download Resume
+          <BsEyeFill className="text-white group-hover:rotate-[-15deg] transition-transform duration-300" />
+          View Resume
         </a>
       </div>
     </div>
