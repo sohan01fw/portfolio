@@ -10,31 +10,35 @@ const Home = () => {
       </div>
       <div className="md:flex md:flex-col h-[100vh]   ">
         <Nav />
-        <div className="md:m-10 md:w-[50%] text-sm flex gap-4 flex-col md:flex-row  ">
-          <p className=" break-words mt-5">
-            👋 Hi, I’m a Creative Web Developer with a passion for crafting
-            user-friendly digital experiences. I thrive on solving complex
-            problems with clean, efficient code and love building solutions that
-            make life easier. Always learning, always innovating—let’s build
-            something great together!
-          </p>
+        <div className=" overflow-y-auto">
+          <div className="md:m-10 md:w-[50%] text-sm flex gap-4 flex-col md:flex-row  ">
+            <p className=" break-words mt-5">
+              👋 Hi, I’m a Creative Web Developer with a passion for crafting
+              user-friendly digital experiences. I thrive on solving complex
+              problems with clean, efficient code and love building solutions
+              that make life easier. Always learning, always innovating—let’s
+              build something great together!
+            </p>
+            <div className="">
+              <p className="mb-5">
+                Bachelor of Science in Computer Science and Information
+                Technology (BSc. CSIT) Sushma Godawari College, Itahari,
+                Sunsari, Nepal Graduated with B+.
+              </p>
+              <p className="whitespace-pre-line">
+                A rigorous program focused on programming, algorithms, database
+                management, and software engineering, blending technical skills
+                with practical project experience. Graduated with high academic
+                honors, showcasing a strong foundation in both theory and
+                applied computer science.
+              </p>
+            </div>
+          </div>
+          {/* 🌟 Skills Section */}
           <div className="">
-            <p className="mb-5">
-              Bachelor of Science in Computer Science and Information Technology
-              (BSc. CSIT) Sushma Godawari College, Itahari, Sunsari, Nepal
-              Graduated with B+.
-            </p>
-            <p className="whitespace-pre-line">
-              A rigorous program focused on programming, algorithms, database
-              management, and software engineering, blending technical skills
-              with practical project experience. Graduated with high academic
-              honors, showcasing a strong foundation in both theory and applied
-              computer science.
-            </p>
+            <Skills />
           </div>
         </div>
-        {/* 🌟 Skills Section */}
-        <Skills />
       </div>
     </div>
   );
