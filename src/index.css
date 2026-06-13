@@ -2,12 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide scrollbar but keep scrolling */
-::-webkit-scrollbar {
-    display: none;
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hide scrollbar but keep scrolling */
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
 }
 
-* {
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none; /* For IE/Edge */
+@layer components {
+  /* Notion-style page block */
+  .notion-block {
+    @apply transition-colors duration-150 rounded-sm;
+  }
+
+  /* Sidebar item base */
+  .sidebar-item {
+    @apply flex items-center gap-2 px-3 py-1.5 rounded-md text-sm cursor-pointer
+           text-gray-600 dark:text-gray-400
+           hover:bg-gray-100 dark:hover:bg-gray-800
+           transition-colors duration-100;
+  }
+
+  .sidebar-item.active {
+    @apply bg-gray-100 dark:bg-gray-800
+           text-gray-900 dark:text-gray-100 font-medium;
+  }
+
+  /* Notion-style divider */
+  .notion-divider {
+    @apply border-t border-gray-200 dark:border-gray-800 my-4;
+  }
+
+  /* Inline code */
+  .notion-code {
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300
+           rounded px-1.5 py-0.5 text-xs font-mono;
+  }
 }

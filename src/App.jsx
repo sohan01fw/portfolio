@@ -1,15 +1,16 @@
 import "./App.css";
-import Darkmode from "./lib/Darkmode";
+import { useTheme } from "./lib/hooks/useTheme";
 import IndexRoute from "./lib/IndexRoute";
 
+/**
+ * App — Root component.
+ * Manages theme state via useTheme hook and passes it to the router/layout.
+ */
 function App() {
+  const { isDark, toggle } = useTheme();
+
   return (
-    <div className=" bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 h-screen overflow-auto md:overflow-hidden">
-      <Darkmode />
-      <div className="">
-        <IndexRoute />
-      </div>
-    </div>
+    <IndexRoute isDark={isDark} onToggleTheme={toggle} />
   );
 }
 
