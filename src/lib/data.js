@@ -40,7 +40,7 @@ export const skillGroups = [
     emoji: "⚙️",
     skills: [
       "Node.js", "Express.js", "NestJS", "FastAPI", "Python",
-      "RESTful APIs", "GraphQL", "Strapi (CMS)", "Redis", "Socket.io",
+      "RESTful APIs", "Strapi (CMS)", "Redis", "Socket.io",
     ],
   },
   {
@@ -110,32 +110,36 @@ export const projects = [
     imgSrc: Ghumfir,
     title: "Ghumfir",
     emoji: "🗺️",
-    tags: ["Maps", "React", "Travel", "Planning"],
-    goal: "Interactive map-based travel planning platform — explore destinations, create itineraries, manage budgets, and record journey notes.",
+    tags: ["React", "Chakra UI", "Node.js", "MongoDB"],
+    goal: "Smart travel itinerary web app that helps users plan trips, manage budgets, add destinations with Google Maps, and take notes — all in one place.",
     siteLink:
       "https://photos.google.com/share/AF1QipMO832iExh3ZJsiVspECf8vWUjRB7Bs2-8c__7jH-s13hnv97OTYFCMl01y38Yk-w/photo/AF1QipNlRb5LRsZqa9rvqQHTU1SpMPQ0mNGumzaorMNU?key=ZHltZXFhbThYUUNjdmdDV0RqSjY3NXIxQmx2T19B",
     codeLink: "https://github.com/sohan01fw/Ghumfir",
     detail: {
       overview:
-        "Ghumfir (meaning 'to roam' in Nepali) is an interactive travel planning web app. Users can explore map-based destinations, pin points of interest, build day-by-day itineraries, track budgets, and keep travel notes — all in one place.",
+        "Ghumfir is a smart travel itinerary web app designed to make trip planning simple, organized, and fun. It provides features like Google Maps location search, daily route itineraries, budget/expense tracking, notes/reminders, and secure user authentication.",
       problem:
-        "Most travellers plan across three or four apps simultaneously — Google Maps for routes, Notion for itineraries, a spreadsheet for budgets. Ghumfir collapses this into a single, map-first interface purpose-built for travel.",
+        "Planning a trip often requires juggling multiple separate tools: Google Maps for directions, notepad apps for itineraries, and spreadsheets for budget tracking. Ghumfir consolidates these tasks into a single platform, eliminating the friction of switching between apps.",
       architecture:
-        "Single-page React app with a component-driven architecture. State is managed locally with React Context for shared trip data. The map is powered by the Leaflet.js library with OpenStreetMap tiles to avoid Google Maps API costs. User data is persisted in localStorage for the MVP, with a backend API planned for v2.",
+        "A full-stack application featuring a React.js client built with Vite and Chakra UI, and a Node.js/Express.js backend written in TypeScript. The backend interfaces with MongoDB via Mongoose and secures sessions using express-session and MongoDB store, alongside JWT/bcrypt authentication.",
       techStack: [
-        { name: "React.js", reason: "Component reusability across map pins, itinerary blocks, and note cards" },
-        { name: "Leaflet.js + OpenStreetMap", reason: "Free, open-source map tiles with full customisation" },
-        { name: "React Context API", reason: "Lightweight global state for trip data without the overhead of Redux" },
-        { name: "Tailwind CSS", reason: "Rapid responsive layout for side panels and map overlays" },
-        { name: "LocalStorage", reason: "MVP data persistence without needing a backend" },
+        { name: "React.js + Vite", reason: "Modern, fast frontend tooling and component-driven UI rendering" },
+        { name: "Google Maps API", reason: "Search, autocomplete, and display travel destinations interactively" },
+        { name: "Chakra UI", reason: "Component library for building responsive and accessible layouts" },
+        { name: "Node.js + Express.js", reason: "Lightweight and robust backend server environment" },
+        { name: "TypeScript", reason: "Static typing for scalable and reliable server-side code" },
+        { name: "MongoDB + Mongoose", reason: "NoSQL database and schema modeling for flexible itinerary structure" },
+        { name: "JWT & bcrypt", reason: "Secure token-based authentication and password hashing" },
+        { name: "Express-session & MongoDB Store", reason: "Secure, persistent session management" },
+        { name: "Framer Motion", reason: "Smooth animations and transition effects" },
       ],
       challenges: [
-        "Synchronising map state with the itinerary panel — solved by lifting pin state to a shared React Context.",
-        "Leaflet.js conflicts with React's virtual DOM — required using refs carefully and lazy-loading the map component.",
-        "Budget tracking with currency conversion required a third-party exchange rate API and careful debouncing of updates.",
+        "Integrating Google Maps API to search and pin destinations while ensuring smooth rendering.",
+        "Managing user session state securely across both cookie-based sessions and JWTs.",
+        "Designing a responsive budget tracking interface with real-time expense calculations using Chakra UI.",
       ],
       learnings:
-        "This project taught me how to work with third-party map libraries inside React's rendering model, and how to think about offline-first design. The MVP-first approach (localStorage before a real backend) let me validate the UX quickly before investing in infrastructure.",
+        "Building Ghumfir reinforced my understanding of full-stack TypeScript/Node.js development and NoSQL schema design for complex, nested data like travel itineraries. I also gained practical experience with secure session storage and integrating the Google Maps API.",
       status: "Demo",
       timeline: "2 months",
     },
