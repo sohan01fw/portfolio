@@ -1,5 +1,6 @@
 import Ghumfir from "../assets/Ghumfir.png";
 import job from "../assets/jobboardhome.png";
+import shortly from "../assets/shortly.png";
 
 // ─── Personal Info ─────────────────────────────────────────────────────────────
 export const profile = {
@@ -68,6 +69,58 @@ export const skillGroups = [
 
 // ─── Projects ──────────────────────────────────────────────────────────────────
 export const projects = [
+  {
+    id: "shortly",
+    imgSrc: shortly,
+    title: "Shortly",
+    emoji: "🔗",
+    tags: ["React", "Bun", "PostgreSQL", "Redis"],
+    goal: "Production-minded URL shortener with Redis caching, Nginx gateway, Prometheus + Grafana monitoring, and k6 load testing — built like a real service, not just a demo.",
+    codeLink: "https://github.com/sohan01fw/shortly",
+    detail: {
+      overview:
+        "Shortly turns long, messy links into clean short URLs with a React frontend, a Bun/Express backend, PostgreSQL persistence, Redis redirect caching, Nginx gateway routing, and a full Prometheus + Grafana monitoring stack. URL creation and redirect traffic run as separate backend processes, redirects are optimized through Redis, migrations run automatically before startup, and k6 load tests validate the system under traffic.",
+      problem:
+        "Long URLs are hard to share, easy to break, and not friendly for social posts, resumes, campaigns, QR codes, or messaging. Shortly solves that by creating short, stable, shareable links while keeping the backend ready for operational concerns such as reliability, caching, metrics, and load testing.",
+      architecture:
+        "The React UI communicates through an Nginx gateway on port 5000. Internally, a Creation Server (port 5001) handles POST /urls with PostgreSQL writes and Redis cache warming, while a Redirect Server (port 5002) handles short-code lookups with Redis cache hits falling back to PostgreSQL. This separation mirrors how high-traffic URL shorteners are scaled: creation is write-heavy, redirects are read-heavy and cache-friendly.",
+      techStack: [
+        { name: "React 19 + Vite 8", reason: "Modern frontend with TypeScript and Tailwind CSS 4 for rapid UI development" },
+        { name: "TanStack React Query + Axios", reason: "Declarative data fetching with caching and mutation support" },
+        { name: "Bun + Express 5", reason: "Fast runtime with TypeScript backend and lightweight API framework" },
+        { name: "PostgreSQL 17", reason: "Reliable relational persistence for URL mappings and metadata" },
+        { name: "Redis 8", reason: "High-speed redirect caching and negative cache for missing short codes" },
+        { name: "Nginx", reason: "Gateway routing that separates creation and redirect traffic" },
+        { name: "Prometheus + Grafana", reason: "Full observability stack with metrics, dashboards, and alerting" },
+        { name: "Grafana k6", reason: "Load testing to validate performance under traffic" },
+        { name: "Docker Compose", reason: "One-command local infrastructure for all services" },
+      ],
+      challenges: [
+        "Designing concurrency-safe short-code generation to avoid collisions under parallel write traffic.",
+        "Implementing a dual-cache strategy: warming Redis on creation and adding negative caching for missing codes to reduce unnecessary database hits.",
+        "Separating creation and redirect into independent servers behind Nginx while keeping the system simple to run locally via Docker Compose.",
+      ],
+      learnings:
+        "Shortly deepened my understanding of service decomposition, cache-aware redirect design, structured error responses, and measurable performance validation. Building the full monitoring stack (Prometheus + Grafana) and running k6 load tests taught me how to think about production readiness beyond basic CRUD.",
+      loadTestResults: {
+        title: "k6 Local Smoke Load Test Results",
+        description: "Measured using a k6 load-testing script running via Docker Compose (June 18, 2026). Configured thresholds: checks > 99%, http_req_failed < 1%, and p95 latency < 1000ms.",
+        metrics: [
+          { name: "Threshold Status", value: "PASSED ⚡", type: "success" },
+          { name: "Checks", value: "100.00%", type: "success" },
+          { name: "Failed Requests", value: "0.00%", type: "success" },
+          { name: "Total Requests", value: "17" },
+          { name: "Average Latency", value: "26.18 ms" },
+          { name: "Median Latency", value: "9.00 ms" },
+          { name: "p90 Latency", value: "22.45 ms" },
+          { name: "p95 Latency", value: "75.18 ms", highlight: true },
+          { name: "Max Latency", value: "273.68 ms" }
+        ]
+      },
+      status: "Live",
+      timeline: "1 month",
+    },
+  },
   {
     id: "job-board",
     imgSrc: job,

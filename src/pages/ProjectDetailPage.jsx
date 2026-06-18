@@ -187,6 +187,43 @@ const ProjectDetailPage = () => {
           </Section>
         )}
 
+        {/* Load Test Results */}
+        {d?.loadTestResults && (
+          <Section emoji="📈" title="Performance & Load Test Results">
+            <div className="rounded-md bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-4 py-4 space-y-4">
+              <div>
+                <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                  {d.loadTestResults.title}
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+                  {d.loadTestResults.description}
+                </p>
+              </div>
+
+              <div className="border border-gray-200 dark:border-gray-800 rounded-md overflow-hidden bg-white dark:bg-gray-950">
+                <table className="min-w-full divide-y divide-gray-150 dark:divide-gray-800 text-xs">
+                  <thead className="bg-gray-50 dark:bg-gray-900 text-gray-500 dark:text-gray-400 font-medium text-left">
+                    <tr>
+                      <th className="px-4 py-2">Metric</th>
+                      <th className="px-4 py-2 text-right">Value</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 dark:divide-gray-800 text-gray-700 dark:text-gray-300">
+                    {d.loadTestResults.metrics.map((m) => (
+                      <tr key={m.name} className={m.highlight ? "bg-blue-50/50 dark:bg-blue-950/20 font-semibold" : ""}>
+                        <td className="px-4 py-2 font-medium">{m.name}</td>
+                        <td className={`px-4 py-2 text-right ${m.type === "success" ? "text-green-600 dark:text-green-400 font-bold" : ""}`}>
+                          {m.value}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Section>
+        )}
+
         {/* Learnings */}
         {d?.learnings && (
           <Section emoji="💡" title="Key Learnings">
