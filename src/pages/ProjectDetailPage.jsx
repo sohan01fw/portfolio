@@ -187,6 +187,32 @@ const ProjectDetailPage = () => {
           </Section>
         )}
 
+        {/* Performance Optimizations */}
+        {d?.optimizations && (
+          <Section emoji="⚡" title="Performance Optimizations">
+            <div className="space-y-4">
+              {d.optimizations.highlights && (
+                <div className="rounded-md bg-green-50/50 dark:bg-green-950/10 border border-green-200/50 dark:border-green-900/30 px-4 py-3 text-xs text-green-800 dark:text-green-300">
+                  <span className="font-semibold">Biggest Wins:</span> {d.optimizations.highlights}
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {d.optimizations.list.map((opt, i) => (
+                  <div key={i} className="rounded-md border border-gray-200 dark:border-gray-800 p-3 bg-white dark:bg-gray-950 space-y-1">
+                    <h4 className="text-xs font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-1.5">
+                      <span className="text-green-500 font-bold">✓</span> {opt.title}
+                    </h4>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed pl-4">
+                      {opt.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+        )}
+
         {/* Load Test Results */}
         {d?.loadTestResults && (
           <Section emoji="📈" title="Performance & Load Test Results">
@@ -200,26 +226,71 @@ const ProjectDetailPage = () => {
                 </p>
               </div>
 
-              <div className="border border-gray-200 dark:border-gray-800 rounded-md overflow-hidden bg-white dark:bg-gray-950">
-                <table className="min-w-full divide-y divide-gray-150 dark:divide-gray-800 text-xs">
-                  <thead className="bg-gray-50 dark:bg-gray-900 text-gray-500 dark:text-gray-400 font-medium text-left">
-                    <tr>
-                      <th className="px-4 py-2">Metric</th>
-                      <th className="px-4 py-2 text-right">Value</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100 dark:divide-gray-800 text-gray-700 dark:text-gray-300">
-                    {d.loadTestResults.metrics.map((m) => (
-                      <tr key={m.name} className={m.highlight ? "bg-blue-50/50 dark:bg-blue-950/20 font-semibold" : ""}>
-                        <td className="px-4 py-2 font-medium">{m.name}</td>
-                        <td className={`px-4 py-2 text-right ${m.type === "success" ? "text-green-600 dark:text-green-400 font-bold" : ""}`}>
-                          {m.value}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              {/* Scenarios Table */}
+              {d.loadTestResults.scenarios && (
+                <div className="border border-gray-200 dark:border-gray-800 rounded-md overflow-hidden bg-white dark:bg-gray-950">
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-150 dark:divide-gray-800 text-xs">
+                      <thead className="bg-gray-50 dark:bg-gray-900 text-gray-500 dark:text-gray-400 font-medium text-left">
+                        <tr>
+                          <th className="px-4 py-2.5">Path / Scenario</th>
+                          <th className="px-4 py-2.5">Best Proven Result</th>
+                          <th className="px-4 py-2.5">Operational Meaning</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-100 dark:divide-gray-800 text-gray-700 dark:text-gray-300">
+                        {d.loadTestResults.scenarios.map((s) => (
+                          <tr key={s.path} className="hover:bg-gray-50/50 dark:hover:bg-gray-900/50">
+                            <td className="px-4 py-2.5 font-medium">{s.path}</td>
+                            <td className="px-4 py-2.5 text-blue-600 dark:text-blue-400 font-semibold">{s.result}</td>
+                            <td className="px-4 py-2.5 text-gray-500 dark:text-gray-400">{s.meaning}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {/* Daily Projections */}
+              {d.loadTestResults.dailyProjections && (
+                <div className="border border-gray-200 dark:border-gray-800 rounded-md overflow-hidden bg-white dark:bg-gray-950">
+                  <div className="bg-gray-50 dark:bg-gray-900 px-4 py-2 border-b border-gray-200 dark:border-gray-800">
+                    <h4 className="text-[10px] font-semibold text-gray-500 dark:text-gray-500 uppercase tracking-wider">
+                      Daily Traffic Projections (Extrapolated)
+                    </h4>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-150 dark:divide-gray-800 text-xs">
+                      <thead className="bg-gray-50 dark:bg-gray-900 text-gray-500 dark:text-gray-400 font-medium text-left">
+                        <tr>
+                          <th className="px-4 py-2">Metric / Action</th>
+                          <th className="px-4 py-2">Calculation</th>
+                          <th className="px-4 py-2 text-right">Projected Capacity</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-100 dark:divide-gray-800 text-gray-700 dark:text-gray-300">
+                        {d.loadTestResults.dailyProjections.map((p) => (
+                          <tr key={p.metric} className="hover:bg-gray-50/50 dark:hover:bg-gray-900/50">
+                            <td className="px-4 py-2 font-medium">{p.metric}</td>
+                            <td className="px-4 py-2 text-gray-500 dark:text-gray-400 font-mono text-[10px]">{p.calculation}</td>
+                            <td className="px-4 py-2 text-right font-semibold text-green-600 dark:text-green-400">{p.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {/* Claim quote block */}
+              {d.loadTestResults.claim && (
+                <div className="border-l-2 border-blue-500 dark:border-blue-600 bg-blue-50/30 dark:bg-blue-950/10 px-4 py-3 rounded-r-md">
+                  <p className="text-xs italic text-gray-600 dark:text-gray-400 leading-relaxed">
+                    &ldquo;{d.loadTestResults.claim}&rdquo;
+                  </p>
+                </div>
+              )}
             </div>
           </Section>
         )}

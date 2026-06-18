@@ -100,22 +100,50 @@ export const projects = [
         "Implementing a dual-cache strategy: warming Redis on creation and adding negative caching for missing codes to reduce unnecessary database hits.",
         "Separating creation and redirect into independent servers behind Nginx while keeping the system simple to run locally via Docker Compose.",
       ],
+      optimizations: {
+        highlights: "Nginx upstream keepalive, DB pool size, removing redundant database SELECT queries, and Redis redirect caching.",
+        list: [
+          {
+            title: "Nginx Connection Limits",
+            desc: "Increased worker_connections from 512 to 4096, bumped open file limits from 1024 to 8192, and enabled worker_processes auto to utilize all CPU cores."
+          },
+          {
+            title: "Nginx Upstream Keepalive",
+            desc: "Prevented Nginx from opening a new TCP connection to the backend processes on every incoming request by configuring keepalive connection reuse."
+          },
+          {
+            title: "Database Connection Pool",
+            desc: "Scaled up the DB pool size from 10 to 30, resolving write bottlenecks during concurrent 1000 VU stress tests."
+          },
+          {
+            title: "Query Optimization",
+            desc: "Removed the redundant SELECT query before URL INSERTs, allowing PostgreSQL to handle uniqueness constraints directly and safely."
+          },
+          {
+            title: "Schema Cleanup",
+            desc: "Removed unused URL IDs, sequences, and secondary indexes to minimize page write overhead."
+          },
+          {
+            title: "Redis Cache Optimization",
+            desc: "Warmed Redis cache instantly on URL creation and implemented negative caching for missing codes to protect the DB from query flooding."
+          }
+        ]
+      },
       learnings:
         "Shortly deepened my understanding of service decomposition, cache-aware redirect design, structured error responses, and measurable performance validation. Building the full monitoring stack (Prometheus + Grafana) and running k6 load tests taught me how to think about production readiness beyond basic CRUD.",
       loadTestResults: {
-        title: "k6 Local Smoke Load Test Results",
-        description: "Measured using a k6 load-testing script running via Docker Compose (June 18, 2026). Configured thresholds: checks > 99%, http_req_failed < 1%, and p95 latency < 1000ms.",
-        metrics: [
-          { name: "Threshold Status", value: "PASSED ⚡", type: "success" },
-          { name: "Checks", value: "100.00%", type: "success" },
-          { name: "Failed Requests", value: "0.00%", type: "success" },
-          { name: "Total Requests", value: "17" },
-          { name: "Average Latency", value: "26.18 ms" },
-          { name: "Median Latency", value: "9.00 ms" },
-          { name: "p90 Latency", value: "22.45 ms" },
-          { name: "p95 Latency", value: "75.18 ms", highlight: true },
-          { name: "Max Latency", value: "273.68 ms" }
-        ]
+        title: "Production Load Test Performance & Scaling",
+        description: "Scenarios run locally via k6 load-testing scripts against the Docker Compose stack (tested June 18, 2026).",
+        scenarios: [
+          { path: "URL creation (POST /urls)", result: "1000 VUs · 763 req/sec · 109ms p95 · 0% failures", meaning: "Handles heavy write traffic well locally" },
+          { path: "Hot redirect (GET /:code)", result: "1000 VUs · 788 req/sec · 3.46ms p95 · 0% failures", meaning: "Redis cache path is extremely strong" },
+          { path: "500 VU redirect", result: "400 req/sec · 3.39ms p95 · 0% failures", meaning: "Scaling from 500 to 1000 VUs barely changes latency" }
+        ],
+        dailyProjections: [
+          { metric: "Redirect Capacity (GET)", value: "68 Million Requests / Day", calculation: "788 req/sec × 86,400 sec/day" },
+          { metric: "Creation Capacity (POST)", value: "66 Million Requests / Day", calculation: "763 req/sec × 86,400 sec/day" }
+        ],
+        claim: "This application is locally proven to handle 1,000 concurrent virtual users with around 750-800 requests/second on both creation and hot-cache redirect paths."
       },
       status: "Live",
       timeline: "1 month",
