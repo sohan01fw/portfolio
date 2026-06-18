@@ -1,9 +1,10 @@
 import HeroSection from "../components/sections/HeroSection";
 import AboutSection from "../components/sections/AboutSection";
+import ExperienceSection from "../components/sections/ExperienceSection";
 import SkillsSection from "../components/sections/SkillsSection";
 
 /**
- * HomePage — Notion-style page: Profile → About → Skills
+ * HomePage — Notion-style page: Profile → About → Experience → Skills
  */
 const HomePage = () => {
   return (
@@ -23,6 +24,7 @@ const HomePage = () => {
 
       <HeroSection />
       <AboutSection />
+      <ExperienceSection />
       <SkillsSection />
     </div>
   );

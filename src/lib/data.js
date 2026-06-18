@@ -146,6 +146,40 @@ export const projects = [
   },
 ];
 
+// ─── Experience ───────────────────────────────────────────────────────────────
+export const experiences = [
+  {
+    role: "Fullstack Developer",
+    company: "Wove",
+    subtitle: "A Relationship Intelligence Software",
+    emoji: "💼",
+    highlights: [
+      "Built full-stack product flows for Wove’s relationship intelligence app, including contacts, Gmail sync status, dashboard recommendations, and contact detail pages.",
+      "Integrated frontend screens with NestJS APIs for CRIS relationship scores, CRIL contact memory, follow-up context, and email timelines.",
+      "Contributed lightly to the Python pipeline side that processes Gmail data into relationship scores, recommendations, and warm-intro intelligence."
+    ]
+  },
+  {
+    role: "Frontend Developer",
+    company: "Socially",
+    subtitle: "Social Media Management Platform",
+    emoji: "📱",
+    highlights: [
+      "Worked on Next.js for the client-side landing page and React.js (React Query, Axios) for the core functional app, focusing on performance optimization.",
+      "Built complex calendar and posting features, improving interactivity and user experience."
+    ]
+  },
+  {
+    role: "Backend Intern",
+    company: "Maanche",
+    emoji: "⚙️",
+    highlights: [
+      "Used Express.js, Postman, and REST APIs for backend authentication and integration tasks.",
+      "Assisted in developing secure authentication workflows and API endpoints for internal systems."
+    ]
+  }
+];
+
 // ─── Nav Pages (Notion-style sidebar pages) ────────────────────────────────────
 export const navPages = [
   { emoji: "🏠", label: "Home",     path: "/" },
