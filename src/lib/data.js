@@ -233,6 +233,8 @@ export const experiences = [
     role: "Fullstack Developer",
     company: "Wove",
     subtitle: "A Relationship Intelligence Software",
+    duration: "1 month (Ongoing)",
+    type: "Contract",
     emoji: "💼",
     highlights: [
       "Built full-stack product flows for Wove’s relationship intelligence app, including contacts, Gmail sync status, dashboard recommendations, and contact detail pages.",
@@ -244,6 +246,8 @@ export const experiences = [
     role: "Frontend Developer",
     company: "Socially",
     subtitle: "Social Media Management Platform",
+    duration: "2 months",
+    type: "Contract",
     emoji: "📱",
     highlights: [
       "Worked on Next.js for the client-side landing page and React.js (React Query, Axios) for the core functional app, focusing on performance optimization.",
@@ -253,6 +257,7 @@ export const experiences = [
   {
     role: "Backend Intern",
     company: "Maanche",
+    duration: "1 month",
     emoji: "⚙️",
     highlights: [
       "Used Express.js, Postman, and REST APIs for backend authentication and integration tasks.",

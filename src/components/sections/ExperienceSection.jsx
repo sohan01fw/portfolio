@@ -23,12 +23,24 @@ const ExperienceSection = () => {
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
                   {exp.role} <span className="text-gray-400 dark:text-gray-500 font-normal">at</span> {exp.company}
                 </span>
+                {exp.type && (
+                  <span className="text-[10px] font-medium bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 px-1.5 py-0.5 rounded">
+                    {exp.type}
+                  </span>
+                )}
               </div>
-              {exp.subtitle && (
-                <span className="text-xs text-gray-500 dark:text-gray-400 font-medium bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded">
-                  {exp.subtitle}
-                </span>
-              )}
+              <div className="flex items-center gap-2">
+                {exp.duration && (
+                  <span className="text-xs text-gray-400 dark:text-gray-500 font-normal">
+                    ⏱ {exp.duration}
+                  </span>
+                )}
+                {exp.subtitle && (
+                  <span className="text-xs text-gray-500 dark:text-gray-400 font-medium bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded">
+                    {exp.subtitle}
+                  </span>
+                )}
+              </div>
             </div>
 
             {/* Highlights */}
