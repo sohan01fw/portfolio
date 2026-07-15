@@ -70,6 +70,43 @@ export const skillGroups = [
 // ─── Projects ──────────────────────────────────────────────────────────────────
 export const projects = [
   {
+    id: "job-board",
+    imgSrc: job,
+    title: "Job Board",
+    emoji: "💼",
+    tags: ["AI", "React", "Node.js", "PostgreSQL"],
+    goal: "AI-powered job board with intelligent recruiter-applicant matching, AI-assisted job posting, and social media-style engagement.",
+    siteLink: "https://job-board-all.vercel.app/",
+    codeLink: "https://github.com/sohan01fw/job-board",
+    detail: {
+      overview:
+        "A full-stack AI-powered job board that reimagines how recruiters and candidates connect. The platform uses AI for intelligent job-candidate matching, AI-assisted posting creation, and a social feed to boost visibility.",
+      problem:
+        "Traditional job boards are passive — candidates upload CVs and hope. There's no intelligent matching, no engagement layer, and no feedback loop. I wanted to build something that actively surfaces the right opportunities to the right people.",
+      architecture:
+        "The app follows a client-server architecture with a Next.js frontend (App Router) and a Node.js/Express API backend. AI features are powered by the OpenAI API, injected at the API layer so the frontend stays clean. PostgreSQL (via Prisma) handles structured data, and Redis caches AI results to reduce latency and API costs. Auth is handled by Clerk for session management and social login.",
+      techStack: [
+        { name: "Next.js (App Router)", reason: "SSR + file-based routing for fast page loads and SEO" },
+        { name: "Node.js + Express", reason: "Lightweight REST API with middleware flexibility" },
+        { name: "PostgreSQL + Prisma", reason: "Relational data model for jobs, users, and applications" },
+        { name: "OpenAI API", reason: "AI-assisted job description generation and semantic matching" },
+        { name: "Redis", reason: "Cache AI responses to reduce repeated API calls" },
+        { name: "Clerk", reason: "Plug-and-play auth with Google/GitHub OAuth out of the box" },
+        { name: "Tailwind CSS", reason: "Rapid UI development with consistent design tokens" },
+        { name: "Vercel", reason: "Zero-config deployment for Next.js with edge functions" },
+      ],
+      challenges: [
+        "Designing the AI matching algorithm to be accurate without hallucinating — solved by using structured prompts with strict JSON output schemas.",
+        "Handling rate limits on the OpenAI API under concurrent user load — mitigated with Redis caching and request queuing.",
+        "Building a social feed that feels real-time without WebSockets — used polling with SWR for now, with Socket.io planned for v2.",
+      ],
+      learnings:
+        "This project deepened my understanding of AI integration patterns — specifically prompt engineering, output validation, and cost-efficient caching strategies. I also learned how important schema design is early in the project, as changing the Prisma schema mid-build caused several painful migrations.",
+      status: "Live",
+      timeline: "3 months",
+    },
+  },
+  {
     id: "shortly",
     imgSrc: shortly,
     title: "Shortly",
@@ -147,43 +184,6 @@ export const projects = [
       },
       status: "Live",
       timeline: "1 month",
-    },
-  },
-  {
-    id: "job-board",
-    imgSrc: job,
-    title: "Job Board",
-    emoji: "💼",
-    tags: ["AI", "React", "Node.js", "PostgreSQL"],
-    goal: "AI-powered job board with intelligent recruiter-applicant matching, AI-assisted job posting, and social media-style engagement.",
-    siteLink: "https://job-board-all.vercel.app/",
-    codeLink: "https://github.com/sohan01fw/job-board",
-    detail: {
-      overview:
-        "A full-stack AI-powered job board that reimagines how recruiters and candidates connect. The platform uses AI for intelligent job-candidate matching, AI-assisted posting creation, and a social feed to boost visibility.",
-      problem:
-        "Traditional job boards are passive — candidates upload CVs and hope. There's no intelligent matching, no engagement layer, and no feedback loop. I wanted to build something that actively surfaces the right opportunities to the right people.",
-      architecture:
-        "The app follows a client-server architecture with a Next.js frontend (App Router) and a Node.js/Express API backend. AI features are powered by the OpenAI API, injected at the API layer so the frontend stays clean. PostgreSQL (via Prisma) handles structured data, and Redis caches AI results to reduce latency and API costs. Auth is handled by Clerk for session management and social login.",
-      techStack: [
-        { name: "Next.js (App Router)", reason: "SSR + file-based routing for fast page loads and SEO" },
-        { name: "Node.js + Express", reason: "Lightweight REST API with middleware flexibility" },
-        { name: "PostgreSQL + Prisma", reason: "Relational data model for jobs, users, and applications" },
-        { name: "OpenAI API", reason: "AI-assisted job description generation and semantic matching" },
-        { name: "Redis", reason: "Cache AI responses to reduce repeated API calls" },
-        { name: "Clerk", reason: "Plug-and-play auth with Google/GitHub OAuth out of the box" },
-        { name: "Tailwind CSS", reason: "Rapid UI development with consistent design tokens" },
-        { name: "Vercel", reason: "Zero-config deployment for Next.js with edge functions" },
-      ],
-      challenges: [
-        "Designing the AI matching algorithm to be accurate without hallucinating — solved by using structured prompts with strict JSON output schemas.",
-        "Handling rate limits on the OpenAI API under concurrent user load — mitigated with Redis caching and request queuing.",
-        "Building a social feed that feels real-time without WebSockets — used polling with SWR for now, with Socket.io planned for v2.",
-      ],
-      learnings:
-        "This project deepened my understanding of AI integration patterns — specifically prompt engineering, output validation, and cost-efficient caching strategies. I also learned how important schema design is early in the project, as changing the Prisma schema mid-build caused several painful migrations.",
-      status: "Live",
-      timeline: "3 months",
     },
   },
   {
