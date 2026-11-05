@@ -231,9 +231,22 @@ export const projects = [
 export const experiences = [
   {
     role: "Fullstack Developer",
+    company: "Havenap",
+    subtitle: "Ecommerce Platform",
+    duration: "Ongoing",
+    type: "Freelance",
+    emoji: "🛒",
+    highlights: [
+      "Building an ecommerce platform end-to-end as freelance work, handling everything from frontend to backend.",
+      "Integrated full-stack payment flows along with catalog, cart, checkout, and order management.",
+      "Built a fully protected admin panel with role-based access, product/order/user management, and secure API routes."
+    ]
+  },
+  {
+    role: "Fullstack Developer",
     company: "Wove",
     subtitle: "A Relationship Intelligence Software",
-    duration: "1 month (Ongoing)",
+    duration: "1 month",
     type: "Contract",
     emoji: "💼",
     highlights: [
@@ -252,16 +265,6 @@ export const experiences = [
     highlights: [
       "Worked on Next.js for the client-side landing page and React.js (React Query, Axios) for the core functional app, focusing on performance optimization.",
       "Built complex calendar and posting features, improving interactivity and user experience."
-    ]
-  },
-  {
-    role: "Backend Intern",
-    company: "Maanche",
-    duration: "1 month",
-    emoji: "⚙️",
-    highlights: [
-      "Used Express.js, Postman, and REST APIs for backend authentication and integration tasks.",
-      "Assisted in developing secure authentication workflows and API endpoints for internal systems."
     ]
   }
 ];
