@@ -1,6 +1,7 @@
 import Ghumfir from "../assets/Ghumfir.png";
 import job from "../assets/jobboardhome.png";
 import shortly from "../assets/shortly.png";
+import havenap from "../assets/havenap.jpg";
 
 // ─── Personal Info ─────────────────────────────────────────────────────────────
 export const profile = {
@@ -69,6 +70,45 @@ export const skillGroups = [
 
 // ─── Projects ──────────────────────────────────────────────────────────────────
 export const projects = [
+  {
+    id: "havenap",
+    imgSrc: havenap,
+    title: "Havenap",
+    emoji: "🛒",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe"],
+    goal: "Full-stack ecommerce platform with product catalog, cart, checkout, customer accounts, order management, and a protected admin dashboard — built end-to-end as freelance work.",
+    siteLink: "https://havenap.com",
+    detail: {
+      overview:
+        "Havenap is a production-grade ecommerce website built end-to-end as freelance work. It covers the full shopping journey — public product pages, cart, Stripe checkout, customer accounts and order history — plus a fully protected admin dashboard for product, order, and support management, promotions, and homepage content.",
+      problem:
+        "The client needed a complete, modern ecommerce storefront that could handle real payments, inventory, and order fulfillment without relying on a heavyweight SaaS platform. The goal was a tailored experience with full ownership of data, branding, and operations.",
+      architecture:
+        "A Next.js 16 App Router application with React 19 and TypeScript, backed by PostgreSQL (Supabase) through Prisma 7. Auth is handled with NextAuth (email + Google OAuth), payments and order confirmation through Stripe webhooks, transactional email via Resend, file storage and realtime admin notifications via Supabase, and Upstash Redis for rate limiting on login, checkout, support, and promotions. Tailwind CSS 4 with Radix UI primitives powers the UI.",
+      techStack: [
+        { name: "Next.js 16 (App Router)", reason: "SSR + file-based routing for fast product pages and SEO" },
+        { name: "React 19 + TypeScript", reason: "Type-safe, modern component architecture" },
+        { name: "Prisma 7 + PostgreSQL", reason: "Type-safe ORM with relational data model for products, orders, users" },
+        { name: "Supabase", reason: "Managed Postgres, file storage, and realtime admin notifications" },
+        { name: "Stripe", reason: "Secure checkout, webhooks for order confirmation, tax support" },
+        { name: "NextAuth (beta)", reason: "Email + Google OAuth with role-based admin access" },
+        { name: "Resend", reason: "Transactional and promotional email delivery" },
+        { name: "Upstash Redis", reason: "Rate limiting for login, checkout, support, and promotions" },
+        { name: "Tailwind CSS 4 + Radix UI", reason: "Rapid, accessible UI development" },
+        { name: "Vercel", reason: "Zero-config deployment for Next.js with edge functions" },
+      ],
+      challenges: [
+        "Designing role-based admin access controlled via environment-configured admin emails while keeping customer routes fully public.",
+        "Coordinating Stripe webhook events with order creation to ensure orders are only confirmed after successful payment.",
+        "Managing product variants and stock levels across cart and checkout with consistent inventory checks.",
+        "Implementing realtime admin notifications for new orders and support messages via Supabase.",
+      ],
+      learnings:
+        "Havenap deepened my experience building a full ecommerce system end-to-end — from data modeling and payments to admin tooling and deployment. It reinforced the importance of webhook-driven order flows, secure secret management, and designing for client handover with clear operational documentation.",
+      status: "Live",
+      timeline: "Ongoing",
+    },
+  },
   {
     id: "job-board",
     imgSrc: job,
