@@ -11,8 +11,7 @@ export const profile = {
   location: "Itahari, Sunsari · Nepal",
   email: "sohancwactfw@gmail.com",
   title: "Full-Stack Web Developer",
-  bio: "👋 Creative Web Developer with a passion for crafting user-friendly digital experiences. I thrive on solving complex problems with clean, efficient code and love building solutions that make life easier. Always learning, always innovating.",
-  education: {
+  bio: "👋 Creative Web Developer with 2.8 years of experience crafting user-friendly digital experiences. I thrive on solving complex problems with clean, efficient code and love building solutions that make life easier. Always learning, always innovating.",  education: {
     degree: "BSc. Computer Science & Information Technology",
     college: "Sushma Godawari College, Itahari",
     description:
