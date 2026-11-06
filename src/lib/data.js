@@ -286,7 +286,7 @@ export const experiences = [
     role: "Fullstack Developer",
     company: "Wove",
     subtitle: "A Relationship Intelligence Software",
-    duration: "1 month",
+    duration: "4 months",
     type: "Contract",
     emoji: "💼",
     highlights: [
